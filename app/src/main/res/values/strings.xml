@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Password Generator</string>
+    <string name="action_settings">Settings</string>
+    <string name="password_placeholder">No Password Generated Yet</string>
+    <string name="checkbox_uppercase">Uppercase Letters</string>
+    <string name="checkbox_lowercase">Lowercase Letters</string>
+    <string name="checkbox_numbers">Numbers</string>
+    <string name="checkbox_special">Special Characters</string>
+    <string name="button_plus">+</string>
+    <string name="button_minus">-</string>
+    <string name="textview_length">Length</string>
+    <string name="default_password_length">20</string>
+    <string name="button_generate_password">Generate Password</string>
+
+</resources>
