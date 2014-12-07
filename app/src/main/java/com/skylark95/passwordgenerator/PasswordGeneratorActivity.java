@@ -27,6 +27,14 @@ public class PasswordGeneratorActivity extends ActionBarActivity {
     private EditText passwordLengthEditText;
     private EditText generatedPasswordEditText;
 
+    public PasswordGeneratorActivity() {
+        this(new PasswordGeneratorImpl());
+    }
+
+    public PasswordGeneratorActivity(PasswordGenerator passwordGenerator) {
+        this.passwordGenerator = passwordGenerator;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +43,6 @@ public class PasswordGeneratorActivity extends ActionBarActivity {
 
         passwordLengthEditText = (EditText) findViewById(R.id.password_length);
         generatedPasswordEditText = (EditText) findViewById(R.id.generated_password);
-        passwordGenerator = new PasswordGeneratorImpl();
 
         createClickListeners();
     }
@@ -101,8 +108,8 @@ public class PasswordGeneratorActivity extends ActionBarActivity {
                 addCharacterGroup(characterGroups, R.id.checkbox_lowercase, Lowercase.class);
                 addCharacterGroup(characterGroups, R.id.checkbox_numbers, Numbers.class);
                 addCharacterGroup(characterGroups, R.id.checkbox_special, Special.class);
-                String generatedPassword = passwordGenerator.generatePassword(length, characterGroups);
-                generatedPasswordEditText.setText(generatedPassword);
+                String generatedPassword = getPasswordGenerator().generatePassword(length, characterGroups);
+                getGeneratedPasswordEditText().setText(generatedPassword);
             }
         });
     }
@@ -121,12 +128,24 @@ public class PasswordGeneratorActivity extends ActionBarActivity {
         return ((CheckBox) findViewById(id)).isChecked();
     }
 
-    private int getPasswordLength() {
-        return Integer.parseInt(passwordLengthEditText.getText().toString());
+    int getPasswordLength() {
+        return Integer.parseInt(getPasswordLengthEditText().getText().toString());
     }
 
     private void setPasswordLength(int passwordLength) {
-        passwordLengthEditText.setText(String.valueOf(passwordLength));
+        getPasswordLengthEditText().setText(String.valueOf(passwordLength));
+    }
+
+    PasswordGenerator getPasswordGenerator() {
+        return passwordGenerator;
+    }
+
+    EditText getPasswordLengthEditText() {
+        return passwordLengthEditText;
+    }
+
+    EditText getGeneratedPasswordEditText() {
+        return generatedPasswordEditText;
     }
 
 }

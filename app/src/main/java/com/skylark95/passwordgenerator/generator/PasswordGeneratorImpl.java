@@ -45,7 +45,7 @@ public class PasswordGeneratorImpl implements PasswordGenerator {
     /*
      * http://stackoverflow.com/a/80503
      */
-    public char[] concat(char[] a, char[] b) {
+    private char[] concat(char[] a, char[] b) {
         char[] c = new char[a.length + b.length];
         System.arraycopy(a, 0, c, 0, a.length);
         System.arraycopy(b, 0, c, a.length, b.length);
