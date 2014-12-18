@@ -2,7 +2,12 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/actionbar_color</item>
+        <item name="colorPrimaryDark">@color/statusbar_color</item>
+
     </style>
+
+    <color name="actionbar_color">#1E88E5</color>
+    <color name="statusbar_color">#1565C0</color>
 
 </resources>
